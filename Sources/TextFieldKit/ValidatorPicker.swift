@@ -40,7 +40,6 @@ public class ValidatorInputPicker: ValidatorInput {
 public extension ValidatorInputPicker {
     func setup() {
         self.autocorrectionType = .no
-        self.inputEnabled = false
         self.rightViewMode = .always        
         
         let v = UIView()
@@ -48,10 +47,8 @@ public extension ValidatorInputPicker {
         view.heightAnchor.constraint(equalToConstant: 10).isActive = true
         
         v.addSubview(imageView)
-        imageView.size(constant: 12)
         imageView.widthAnchor.constraint(equalToConstant: 12).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 12).isActive = true
-        imageView.centerXAnchor.constraint(equalToConstant: 12).isActive = true
         imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         rightView = v
