@@ -12,7 +12,8 @@ public class ValidatorInputPicker: ValidatorInput {
     var paddingEnabled = true
     
     var imageView: UIImageView = {
-        let imageView = UIImageView(image: Asset.Icons.arrowGreenDown.image)
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "arrowGreenDown")
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -28,7 +29,7 @@ public class ValidatorInputPicker: ValidatorInput {
         setup()
     }
     
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+    public override func editingRect(forBounds bounds: CGRect) -> CGRect {
         let frame = CGRect(x: bounds.minX+16, y: bounds.minY+4,
                            width: bounds.maxX-56, height: bounds.maxY-8)
         return paddingEnabled ? frame : super.editingRect(forBounds: bounds)
@@ -36,19 +37,22 @@ public class ValidatorInputPicker: ValidatorInput {
 
 }
 
-private extension ValidatorInputPicker {
+public extension ValidatorInputPicker {
     func setup() {
         self.autocorrectionType = .no
         self.inputEnabled = false
         self.rightViewMode = .always        
         
         let v = UIView()
-        v.height(constant: 10)
-        v.width(constant: 56)
+        view.widthAnchor.constraint(equalToConstant: 56).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 10).isActive = true
         
         v.addSubview(imageView)
         imageView.size(constant: 12)
-        imageView.centerX(equalTo: v)
+        imageView.widthAnchor.constraint(equalToConstant: 12).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 12).isActive = true
+        imageView.centerXAnchor.constraint(equalToConstant: 12).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         rightView = v
         
@@ -75,7 +79,7 @@ public extension ValidatorInputPicker {
         }
     }
     
-    override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return false
     }
     
