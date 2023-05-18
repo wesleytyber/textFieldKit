@@ -11,12 +11,13 @@ public class ValidatorInputPicker: ValidatorInput {
     var rotateEnabled = true
     var paddingEnabled = true
     
-    var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "arrowGreenDown")
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+    lazy var imageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "arrowGreenDown")
+        image.contentMode = .scaleAspectFit
+        image.clipsToBounds = true
+        return image
     }()
     
     public override init(frame: CGRect) {
@@ -34,22 +35,23 @@ public class ValidatorInputPicker: ValidatorInput {
                            width: bounds.maxX-56, height: bounds.maxY-8)
         return paddingEnabled ? frame : super.editingRect(forBounds: bounds)
     }
-
+    
 }
 
 public extension ValidatorInputPicker {
     func setup() {
         self.autocorrectionType = .no
-        self.rightViewMode = .always        
+        self.rightViewMode = .always
         
         let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
         v.widthAnchor.constraint(equalToConstant: 56).isActive = true
         v.heightAnchor.constraint(equalToConstant: 10).isActive = true
         
         v.addSubview(imageView)
         imageView.widthAnchor.constraint(equalToConstant: 12).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 12).isActive = true
-        imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: v.centerXAnchor).isActive = true
         
         rightView = v
         
@@ -84,7 +86,7 @@ public extension ValidatorInputPicker {
         if action == #selector(paste(_:)) {
             return false
         }
-
+        
         return false
     }
 }
