@@ -43,8 +43,8 @@ public extension ValidatorInputPicker {
         self.rightViewMode = .always        
         
         let v = UIView()
-        view.widthAnchor.constraint(equalToConstant: 56).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        v.widthAnchor.constraint(equalToConstant: 56).isActive = true
+        v.heightAnchor.constraint(equalToConstant: 10).isActive = true
         
         v.addSubview(imageView)
         imageView.widthAnchor.constraint(equalToConstant: 12).isActive = true
