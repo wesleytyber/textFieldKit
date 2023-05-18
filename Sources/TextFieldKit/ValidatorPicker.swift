@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class ValidatorInputPicker: ValidatorInput {
+public open class ValidatorInputPicker: ValidatorInput {
     var rotateEnabled = true
     var paddingEnabled = true
     
