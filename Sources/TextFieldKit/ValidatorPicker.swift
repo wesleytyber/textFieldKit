@@ -11,10 +11,10 @@ public class ValidatorInputPicker: ValidatorInput {
     var rotateEnabled = true
     var paddingEnabled = true
     
-    lazy var imageView: UIImageView = {
+    public lazy var imageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "arrowGreenDown")
+        image.image = UIImage(named: "arrowGreenDown")?.withRenderingMode(.alwaysTemplate)
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
         return image
