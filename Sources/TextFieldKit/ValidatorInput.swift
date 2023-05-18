@@ -13,10 +13,10 @@ public class ValidatorInput: UITextField {
     public var kind: ValidateType = .none
     public var padding = UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
     
-    public var highlightedColor: UIColor = UIColor(named: "VerdePic")!
+    public var highlightedColor: UIColor = UIColor.clear
     public var disableColor: UIColor = UIColor.clear
     public var errorColor: UIColor = UIColor.red
-    public var tempColor: UIColor = UIColor(named: "VerdePic")!
+    public var tempColor: UIColor = UIColor.clear
     
     public lazy var titleLabel: UILabel = {
         let label = UILabel()
